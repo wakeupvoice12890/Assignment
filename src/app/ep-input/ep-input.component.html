@@ -1,0 +1,22 @@
+<div class="form-group">
+  <label class="font-14 font-weight-400" [for]="elementId">
+    {{ label }}
+  </label>
+  <input
+    [type]="type"
+    (input)="onChange($event.target.value)"
+    (change)="updateValue($event.target.value)"
+    (blur)="onTouched()"
+    class="w-100 font-14"
+    [id]="elementId"
+    [required]="required"
+    [readonly]="readonly"
+    [maxlength]="maxLength"
+    [(ngModel)]="value"
+    [formControl]="formSecureInput"
+    autocomplete="off"
+    [placeholder]="placeholder ? placeholder : ''"
+  />
+
+  <ng-content></ng-content>
+</div>

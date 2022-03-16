@@ -1,0 +1,10 @@
+<div class="card">
+  <img [src]="cardInfo.image" class="card-img" [alt]="cardInfo.title" />
+  <div class="card-body">
+    <h5 class="card-title font-15 font-weight-600">{{ cardInfo.title }}</h5>
+    <p class="card-text font-12 font-weight-700">{{ cardInfo.description }}</p>
+    <p class="card-footer font-12 font-weight-400">
+      Modified {{ cardInfo.modifiedDate }} by {{ cardInfo.authorName }}
+    </p>
+  </div>
+</div>

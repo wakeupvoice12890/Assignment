@@ -1,0 +1,34 @@
+.sortByAsc {
+  color: #0f63e6;
+}
+.form {
+  margin: 40px;
+}
+
+ul {
+  list-style: none;
+
+  overflow: hidden;
+  li {
+    float: left;
+    margin: 10px;
+    padding: 5px;
+    cursor: pointer;
+  }
+}
+
+.selected-option {
+  background-color: #7b8695;
+  border-radius: 7px;
+  color: #fff;
+  transition: background-color 1s cubic-bezier(0, 0, 0.82, 1.04);
+}
+
+.sort-icon {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.save-btn {
+  margin-top: 1rem;
+}

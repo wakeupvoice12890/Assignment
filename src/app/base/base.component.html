@@ -1,0 +1,111 @@
+<header>
+  <nav>
+    <ul>
+      <li
+        (click)="selection = 'card'"
+        [ngClass]="{ 'selected-option': selection === 'card' }"
+      >
+        Card
+      </li>
+      <li
+        (click)="selection = 'form'"
+        [ngClass]="{ 'selected-option': selection === 'form' }"
+      >
+        Form
+      </li>
+      <li
+        (click)="selection = 'table'"
+        [ngClass]="{ 'selected-option': selection === 'table' }"
+      >
+        Table
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<section *ngIf="selection === 'table'">
+  <table class="m-auto">
+    <thead>
+      <th class="font-14 font-weight-700" (click)="sortBy('name')">
+        Product Name
+        <i
+          class="fa-solid sort-icon"
+          [ngClass]="{
+            'fa-caret-up': sortByStatus.sortBy === 'asc',
+            'fa-caret-down': sortByStatus.sortBy === 'desc',
+            sortByAsc: sortByStatus.col === 'name'
+          }"
+        ></i>
+      </th>
+      <th class="font-14 font-weight-700" (click)="sortBy('price')">
+        Price
+        <i
+          class="fa-solid sort-icon"
+          [ngClass]="{
+            'fa-caret-up': sortByStatus.sortBy === 'asc',
+            'fa-caret-down': sortByStatus.sortBy === 'desc',
+            sortByAsc: sortByStatus.col === 'price'
+          }"
+        ></i>
+      </th>
+      <th class="font-14 font-weight-700" (click)="sortBy('category')">
+        Category
+        <i
+          [ngClass]="{
+            'fa-caret-up': sortByStatus.sortBy === 'asc',
+            'fa-caret-down': sortByStatus.sortBy === 'desc',
+            sortByAsc: sortByStatus.col === 'category'
+          }"
+          class="fa-solid sort-icon"
+        ></i>
+      </th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of tableData">
+        <td>{{ row.name }}</td>
+        <td>{{ row.price }}</td>
+        <td>{{ row.category }}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<ep-card
+  class="m-auto"
+  *ngIf="selection === 'card'"
+  [cardInfo]="cardInfo"
+></ep-card>
+
+<section *ngIf="selection === 'form'">
+  <div class="form-w-350 form">
+    <ep-input elementId="name" label="Name" placeholder="Enter Name">
+    </ep-input>
+    <ep-input
+      type="email"
+      elementId="email"
+      label="Email"
+      placeholder="Enter Email"
+    >
+    </ep-input>
+    <ep-input
+      elementId="phone-number"
+      label="Phone Number"
+      placeholder="Enter Phone Number"
+    >
+    </ep-input>
+    <ep-input
+      type="password"
+      elementId="password"
+      label="Password"
+      placeholder="Enter Password"
+    >
+    </ep-input>
+    <ep-input
+      type="password"
+      elementId="confirm-password"
+      label="Confirm Password"
+      placeholder="Enter Confirm Password"
+    >
+    </ep-input>
+    <button class="btn btn-primary w-100 save-btn">SAVE</button>
+  </div>
+</section>

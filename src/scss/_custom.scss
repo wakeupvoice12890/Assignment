@@ -1,0 +1,30 @@
+$percentage-sign: "%";
+$form-width-list: 250 300 350 400 450 500 550 600 650 700 750 800 850 900 950;
+
+@each $width in $form-width-list {
+  .form-w-#{$width} {
+    max-width: #{$width}px;
+  }
+}
+
+$standard-font-size: 12 15 14;
+
+@each $font-size in $standard-font-size {
+  .font-#{$font-size} {
+    font-size: #{$font-size}px;
+  }
+}
+
+$font-weight: 400 600 700;
+
+@each $weight in $font-weight {
+  .font-weight-#{$weight} {
+    font-weight: #{$weight};
+  }
+}
+
+@for $i from 1 through 100 {
+  .w-#{$i} {
+    width: #{$i}#{$percentage-sign};
+  }
+}
